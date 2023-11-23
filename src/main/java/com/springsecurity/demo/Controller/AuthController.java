@@ -1,4 +1,4 @@
-package com.springsecurity.demo.config;
+package com.springsecurity.demo.Controller;
 //Create login api to accept username and password and return token if username and password is correct.
 
 import org.slf4j.Logger;
@@ -17,9 +17,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.springsecurity.demo.entities.User;
 import com.springsecurity.demo.models.JwtRequestEntity;
 import com.springsecurity.demo.models.JwtResponseEntity;
 import com.springsecurity.demo.security.JWTHelper;
+import com.springsecurity.demo.services.UserService;
 
 @RestController
 @RequestMapping("/auth")
@@ -33,6 +35,9 @@ public class AuthController {
 
     @Autowired
     private JWTHelper helper;
+
+    @Autowired
+    private UserService userService;
 
     private Logger logger = LoggerFactory.getLogger(AuthController.class);
 
@@ -67,5 +72,12 @@ public class AuthController {
         return "Credentials Invalid !!";
     }
 
+
+    @PostMapping("/createUser")
+    public User createUser(@RequestBody User user)
+    {
+
+        return userService.createUser(user);
+    }
 
 }

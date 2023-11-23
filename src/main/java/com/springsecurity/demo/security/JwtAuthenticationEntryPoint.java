@@ -12,6 +12,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 //make it component so that you can autowired
+//This class is responsible for handling authentication-related exceptions that occur when an 
+//unauthenticated user tries to access a protected resource (endpoint) that requires authentication.
+//When an unauthenticated user tries to access a protected resource, this method is invoked.
 @Component
 public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint{
 

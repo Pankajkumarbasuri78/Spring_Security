@@ -23,6 +23,7 @@ public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint{
             AuthenticationException authException) throws IOException, ServletException {
         // TODO Auto-generated method stub
         response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+        System.out.println("error");
         PrintWriter writer = response.getWriter();
         writer.println("Access Denied !! " + authException.getMessage());
     }

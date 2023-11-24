@@ -36,6 +36,8 @@ public class UserService {
     {
         return userRepository.findAll();
     }
+
+    
     public User createUser(User user)
     {
         user.setUserId(UUID.randomUUID().toString());

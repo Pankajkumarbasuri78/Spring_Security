@@ -34,6 +34,9 @@ public class AppConfig {
     //     return new InMemoryUserDetailsManager(user,user1);
     // }
 
+
+    // The BCryptPasswordEncoder is a popular implementation of the PasswordEncoder interface provided by Spring Security for securely hashing passwords 
+    // using the bcrypt hashing algorithm.
     @Bean
     public PasswordEncoder passwordEncoder()
     {
